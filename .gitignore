@@ -12,3 +12,7 @@
 
 # Maven target folder #
 target/
+
+# VIM #
+*.swp
+*.*~
