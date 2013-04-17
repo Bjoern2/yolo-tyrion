@@ -3,9 +3,10 @@
 Hi! I'm yolo-tyrion!
 I'm a template generator and resource repository framework for Java.
 
-You can declare your resources/templates as methods in interface. I'll do the rest!
+You can declare your resources/templates as methods in interfaces.
+I do the rest for you!
 
-**Example:**
+## Example:
 
 SimpleTemplates.java
 ```java
@@ -55,13 +56,14 @@ public class Example {
 **That's it!**
 
 
-# Why and when is yolo-tyrion a solution for you?
+## Why and when is yolo-tyrion a solution for you?
 ==========
-Sometime you've really, really big String statements in Java. E.g. SQL/HQL/JPQL queries...
-Sometimes it's better to move the big String into a text file. But it's too complicated to read the string out of the file. And if you have values which you must insert into the String goes everthing the ugly way...
+Sometimes you've really, really big String statements in Java. E.g. SQL/HQL/JPQL queries...
+In the cases it's better to move the big strings into text files. But it's too complicated to read the string out of a file. And if you have values which you must insert into the string... O_o
+
 See this:
 
-## The ugly way:
+### The ugly way:
 Any java file:
 ```java
 public class UglyClass {
@@ -81,14 +83,15 @@ public class UglyClass {
 	}
 }
 ```
-### The problems:
+#### The problems:
 * SQL is not easy to read.
 * Autoformat of your IDE will destroy the format of your statement.
 * You can not copy the sql to any command shell. (e.g. phpMyAdmin)
-* If you forget a blank space of "\n" at the end of a row the statement creates errors. (e.g. "l.email,FROMlogin")
+* If you forget a blank space or "\n" at the end of a row the statement creates an error. (e.g. "l.email,FROMlogin")
+* You'll get a big file/method/class.
 
 
-## The better/cleaner way:
+### The better/cleaner way:
 
 BetterClass.java
 ```java
@@ -129,4 +132,12 @@ FROM
 WHERE 
 	l.active = true
 ```
+
+#### The problems I solve:
+* SQL is now easy to read.
+* No problems with autoformat.
+* You can copy the sql and paste it somewhere you want.
+* No escaping symbols like "\n" "\""...
+* The repository class is smaller.
+
 
