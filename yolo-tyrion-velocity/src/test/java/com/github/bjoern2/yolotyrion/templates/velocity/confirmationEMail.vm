@@ -1,0 +1,9 @@
+<html>
+	Hello $firstname $lastname, <br/>
+	<br/>
+#if ($successful == true) 
+	we <b>confirm</b> your order.<br/>
+#else
+	<i>sorry</i>, but your order <u>was not successful</u>. Please try again.
+#end
+</html>
