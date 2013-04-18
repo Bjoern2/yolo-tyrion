@@ -1,10 +1,12 @@
-**yolo-tyrion**
+**Yolo Tyrion**
 ===========
-Hi! I'm yolo-tyrion!
+Hi! I'm Yolo Tyrion!
 I'm a template generator and resource repository framework for Java.
 
 You can declare your resources/templates as methods in interfaces.
 I do the rest for you!
+
+[![Build Status](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/badge/icon)](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/)
 
 ## Example:
 
