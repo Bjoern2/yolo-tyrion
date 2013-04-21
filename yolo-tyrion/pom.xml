@@ -7,12 +7,27 @@
 	<name>Yolo-Tyrion</name>
 	<description>Template/resource framework. Declare template files in interfaces. I do the rest.</description>
 	<url>https://github.com/Bjoern2/yolo-tyrion</url>
+
+	<properties>
+		<!--maven variable which points to your local repository -->
+		<repo.release.path>file://C:\develop\repo\mvn-repo\releases\</repo.release.path>
+		<repo.snapshot.path>file://C:\develop\repo\mvn-repo\snapshots\</repo.snapshot.path>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Release Repository</name>
+			<url>${repo.release.path}</url>
+		</repository>
+		<snapshotRepository>
+			<id>internal.repo.snapshot</id>
+			<name>Snapshot Repository</name>
+			<url>${repo.snapshot.path}</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>commons-io</groupId> -->
-<!-- 			<artifactId>commons-io</artifactId> -->
-<!-- 			<version>2.4</version> -->
-<!-- 		</dependency> -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
