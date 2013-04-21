@@ -143,3 +143,40 @@ WHERE
 * The repository class is smaller.
 
 
+## Download
+Current version: 0.0.1-SNAPSHOT
+
+### Maven
+Add the repository to your pom.xml:
+```xml
+<repositories>
+	<repository>
+		<id>com.github.bjoern2</id>
+		<url>https://raw.github.com/Bjoern2/mvn-repo/master/snapshots/</url>
+	</repository>
+</repositories>
+```
+
+Then add the main library:
+```xml
+<dependency>
+	<groupId>com.github.bjoern2</groupId>
+	<artifactId>yolo-tyrion</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+
+If you need Velocity or Groovy support add one of this dependencies:
+```xml
+<dependency>
+	<groupId>com.github.bjoern2</groupId>
+	<artifactId>yolo-tyrion-velocity</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+</dependency>
+
+<dependency>
+	<groupId>com.github.bjoern2</groupId>
+	<artifactId>yolo-tyrion-groovy</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
