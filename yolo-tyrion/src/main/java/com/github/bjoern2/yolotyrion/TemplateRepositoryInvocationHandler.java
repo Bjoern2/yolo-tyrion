@@ -41,11 +41,12 @@ public class TemplateRepositoryInvocationHandler implements InvocationHandler {
 	
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		
-		
-		
 		// First: Find the template file:
 		Template t = method.getAnnotation(Template.class);
+		if (t == null) {
+			throw new NoSuchFieldException("Cannot find the \"@Template\" annotation.");
+		}
+		
 		final String filename = t.filename();
 		final Class<? extends Generator> generatorClass = t.generator();
 		
@@ -59,20 +60,24 @@ public class TemplateRepositoryInvocationHandler implements InvocationHandler {
 		// Collect params:
 		final List<Object> paramsList = new ArrayList<Object>();
 		final Map<String, Object> paramsMap = new HashMap<String, Object>();
-		final Annotation[][] paramAnnotations = method.getParameterAnnotations();
-		for (int i = 0; i < args.length; i++) {
-			paramsList.add(args[i]);
-			
-			final Annotation[] argAnnotations = paramAnnotations[i];
-			for (Annotation argAnnotation : argAnnotations) {
-				if (argAnnotation instanceof Param) {
-					final Param paramAnnotation = (Param)argAnnotation;
-					paramsMap.put(paramAnnotation.value(), args[i]);
+		
+		if ((args != null) && (args.length > 0)) {
+			final Annotation[][] paramAnnotations = method.getParameterAnnotations();
+			for (int i = 0; i < args.length; i++) {
+				paramsList.add(args[i]);
+				final Annotation[] argAnnotations = paramAnnotations[i];
+				if (argAnnotations != null) {
+					for (Annotation argAnnotation : argAnnotations) {
+						if (argAnnotation instanceof Param) {
+							final Param paramAnnotation = (Param)argAnnotation;
+							paramsMap.put(paramAnnotation.value(), args[i]);
+						}
+					}
 				}
 			}
 		}
 		
-		// Instanciate generator and create the output
+		// Instantiate generator and create the output
 		Generator g = generatorClass.newInstance();
 		return g.generate(template, paramsMap, paramsList);
 	}
