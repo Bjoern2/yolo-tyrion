@@ -18,8 +18,9 @@ package com.github.bjoern2.yolotyrion.templates.simple;
 import com.github.bjoern2.yolotyrion.annotations.Param;
 import com.github.bjoern2.yolotyrion.annotations.Template;
 import com.github.bjoern2.yolotyrion.generator.SimpleGenerator;
+import com.github.bjoern2.yolotyrion.interfaces.TemplateRepository;
 
-public interface SimpleTemplates {
+public interface SimpleTemplates extends TemplateRepository {
 
 	@Template(filename = "helloWorld.txt", generator = SimpleGenerator.class)
 	String helloWorld(@Param("firstname") String firstname, @Param("lastname") String lastname);

@@ -17,8 +17,9 @@ package com.github.bjoern2.yolotyrion.templates.none;
 
 import com.github.bjoern2.yolotyrion.annotations.Param;
 import com.github.bjoern2.yolotyrion.annotations.Template;
+import com.github.bjoern2.yolotyrion.interfaces.TemplateRepository;
 
-public interface OnlyResources {
+public interface OnlyResources extends TemplateRepository {
 
 	@Template(filename = "helloWorld.txt")
 	String helloWorld(@Param("yourName") String yourName);
