@@ -1,12 +1,18 @@
 **Yolo Tyrion**
-===========
+===============
 Hi! I'm Yolo Tyrion!
 I'm a template generator and resource repository framework for Java.
 
-You can declare your resources/templates as methods in interfaces.
+You can declare your resources/templates/properties as methods in interfaces.
 I do the rest for you!
 
 [![Build Status](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/badge/icon)](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/)
+
+## License:
+Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+
+## Continous integration:
+Jenkins by Cloudbees/Buildhive: https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/
 
 ## Example:
 
