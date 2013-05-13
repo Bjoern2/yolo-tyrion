@@ -186,3 +186,5 @@ If you need Velocity or Groovy support add one of this dependencies:
 	<version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/32bac0b37e0acee1aad83042c5dc6b68 "githalytics.com")](http://githalytics.com/Bjoern2/yolo-tyrion)
