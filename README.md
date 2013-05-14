@@ -6,7 +6,8 @@ I'm a template generator and resource repository framework for Java.
 You can declare your resources/templates/properties as methods in interfaces.
 I do the rest for you!
 
-[![Build Status](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/badge/icon)](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/)
+BuildHive: [![Build Status](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/badge/icon)](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/) 
+Travis: [![Build Status](https://travis-ci.org/Bjoern2/yolo-tyrion.png?branch=master)](https://travis-ci.org/Bjoern2/yolo-tyrion)
 
 ## License:
 Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
