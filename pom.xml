@@ -13,5 +13,18 @@
 		<module>yolo-tyrion-groovy</module>
 	</modules>
 
+	<properties>
+		<!--maven variable which points to your local repository -->
+		<internal.repo.path>file://C:\develop\repo\mvn-repo\</internal.repo.path>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Internal Repository</name>
+			<url>${internal.repo.path}</url>
+		</repository>
+	</distributionManagement>
+
 </project>
 

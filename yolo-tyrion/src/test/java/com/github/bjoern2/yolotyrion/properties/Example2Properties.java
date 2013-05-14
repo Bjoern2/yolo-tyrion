@@ -10,4 +10,6 @@ public interface Example2Properties extends PropertyRepository{
 	@Property(name = "hello_world")
 	String helloWorld();
 	
+	int my_int();
+	
 }

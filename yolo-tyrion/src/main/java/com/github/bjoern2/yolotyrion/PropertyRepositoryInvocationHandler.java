@@ -15,8 +15,10 @@
  */
 package com.github.bjoern2.yolotyrion;
 
+import java.io.File;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -57,8 +59,41 @@ public class PropertyRepositoryInvocationHandler implements InvocationHandler {
 		String baseName = method.getDeclaringClass().getPackage().getName() + "." + filename;
 		ResourceBundle rb = getResourceBundle(baseName);
 		
-		if (method.getReturnType().equals(String.class)) {
-			return rb.getString(propertyName);
+		final Class<?> returnType = method.getReturnType();
+		if (returnType.equals(String.class)) {
+			final String value = rb.getString(propertyName);
+			if ((args != null) && (args.length > 0)) {
+				return MessageFormat.format(value, args);
+			} else {
+				return value;
+			}
+		} else if (returnType.equals(Double.class)) {
+			final String value = rb.getString(propertyName);
+			return new Double(value);
+		} else if (returnType.equals(double.class)) {
+			final String value = rb.getString(propertyName);
+			return new Double(value).doubleValue();
+		} else if (returnType.equals(Integer.class)) {
+			final String value = rb.getString(propertyName);
+			return new Integer(value);
+		} else if (returnType.equals(int.class)) {
+			final String value = rb.getString(propertyName);
+			return new Integer(value).intValue();
+		} else if (returnType.equals(Long.class)) {
+			final String value = rb.getString(propertyName);
+			return new Long(value);
+		} else if (returnType.equals(long.class)) {
+			final String value = rb.getString(propertyName);
+			return new Long(value).longValue();
+		} else if (returnType.equals(Float.class)) {
+			final String value = rb.getString(propertyName);
+			return new Float(value);
+		} else if (returnType.equals(float.class)) {
+			final String value = rb.getString(propertyName);
+			return new Float(value).floatValue();
+		} else if (returnType.equals(File.class)) {
+			final String value = rb.getString(propertyName);
+			return new File(value);
 		} else {
 			return rb.getObject(propertyName);
 		}
