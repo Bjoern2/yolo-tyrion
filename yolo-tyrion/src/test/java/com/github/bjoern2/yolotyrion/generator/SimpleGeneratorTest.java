@@ -19,15 +19,23 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.github.bjoern2.yolotyrion.YoloTyrion;
+import com.github.bjoern2.yolotyrion.templates.simple.Simple2Templates;
 import com.github.bjoern2.yolotyrion.templates.simple.SimpleTemplates;
 
 public class SimpleGeneratorTest {
 
 	@Test
-	public void testGenerator() {
+	public void testGenerator1() {
 		SimpleTemplates proxy = YoloTyrion.create(SimpleTemplates.class);
 		
 		String result = proxy.helloWorld("Björn", "Schmitz");
+		Assert.assertEquals("String must be replaced", "Hello Björn Schmitz!", result);
+	}
+	
+	@Test
+	public void testGenerator2() {
+		Simple2Templates proxy = YoloTyrion.create(Simple2Templates.class);
+		String result = proxy.getString("helloWorld2.txt", new SimpleGenerator(), "Björn", "Schmitz");
 		Assert.assertEquals("String must be replaced", "Hello Björn Schmitz!", result);
 	}
 	

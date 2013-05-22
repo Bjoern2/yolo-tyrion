@@ -28,6 +28,8 @@ import java.util.MissingResourceException;
 import com.github.bjoern2.yolotyrion.annotations.Param;
 import com.github.bjoern2.yolotyrion.annotations.Template;
 import com.github.bjoern2.yolotyrion.generator.Generator;
+import com.github.bjoern2.yolotyrion.generator.NullGenerator;
+import com.github.bjoern2.yolotyrion.interfaces.TemplateRepositoryWithLookup;
 import com.github.bjoern2.yolotyrion.utils.IOUtils;
 
 /**
@@ -41,6 +43,48 @@ public class TemplateRepositoryInvocationHandler implements InvocationHandler {
 	
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+		
+		final Method m1 = TemplateRepositoryWithLookup.class.getMethod("getString", String.class);
+		if (m1.equals(method)) {
+			return getStringImpl(proxy, (String)args[0], new NullGenerator(), new Object[] {});
+		}
+		
+		final Method m2 = TemplateRepositoryWithLookup.class.getMethod("getString", String.class, Object[].class);
+		if (m2.equals(method)) {
+			return getStringImpl(proxy, (String)args[0], new NullGenerator(), (Object[])args[1]);
+		}
+		
+		final Method m3 = TemplateRepositoryWithLookup.class.getMethod("getString", String.class, Generator.class, Object[].class);
+		if (m3.equals(method)) {
+			return getStringImpl(proxy, (String)args[0], (Generator)args[1], (Object[])args[2]);
+		}
+		
+		return invokeAnnotationMethod(proxy, method, args);
+	}
+	
+	protected String getStringImpl(Object proxy, String filename, Generator generator, Object[] params) throws Throwable {
+		// Try to find the template file:
+		final InputStream in = proxy.getClass().getInterfaces()[0].getResourceAsStream(filename);
+		if (in == null) {
+			throw new MissingResourceException("Cannot find the template file \"" + filename + "\".", proxy.getClass().getName(), filename);
+		}
+		final String template = IOUtils.toString(in);
+		
+		if (generator == null) {
+			generator = new NullGenerator();
+		}
+		
+		// Collect params:
+		final List<Object> paramsList = new ArrayList<Object>();
+		final Map<String, Object> paramsMap = new HashMap<String, Object>();
+		for (int i = 0; i < params.length; i++) {
+			paramsList.add(params[i]);
+		}
+		
+		return generator.generate(template, paramsMap, paramsList);
+	}
+	
+	private Object invokeAnnotationMethod(Object proxy, Method method, Object[] args) throws Throwable {
 		// First: Find the template file:
 		Template t = method.getAnnotation(Template.class);
 		if (t == null) {
@@ -81,5 +125,6 @@ public class TemplateRepositoryInvocationHandler implements InvocationHandler {
 		Generator g = generatorClass.newInstance();
 		return g.generate(template, paramsMap, paramsList);
 	}
+	
 
 }

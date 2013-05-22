@@ -24,6 +24,11 @@ import java.util.Map;
 
 public class SimpleGenerator implements Generator {
 	
+	private String stringParamPrefix = ":";
+	private String stringParamPostfix = "";
+	private String numberParamPrefix = "?";
+	private String numberParamPostfix = "";
+	
 	private Comparator<String> comparator;
 	
 	public SimpleGenerator() {
@@ -42,11 +47,15 @@ public class SimpleGenerator implements Generator {
 		
 		String result = template;
 		for (String key : keys) {
-			result = result.replace(":" + key, "" + paramsMap.get(key));
+			final String k = stringParamPrefix + key + stringParamPostfix;
+			final String v = "" + paramsMap.get(key);
+			result = result.replace(k, v);
 		}
 		
 		for (int i = paramsList.size() - 1; i >= 0; i--) {
-			result = result.replace("?" + (i + 1), "" + paramsList.get(i));
+			final String k = numberParamPrefix + (i + 1) + numberParamPostfix;
+			final String v = "" + paramsList.get(i);
+			result = result.replace(k, v);
 		}
 		return result;
 	}

@@ -2,6 +2,7 @@ package com.github.bjoern2.yolotyrion;
 
 import com.github.bjoern2.yolotyrion.interfaces.PropertyRepository;
 import com.github.bjoern2.yolotyrion.interfaces.TemplateRepository;
+import com.github.bjoern2.yolotyrion.interfaces.TemplateRepositoryWithLookup;
 
 public class YoloTyrion {
 
@@ -11,7 +12,7 @@ public class YoloTyrion {
 	public static <X> X create(Class<X> clazz) {
 		Class<?>[] interfaces = clazz.getInterfaces();
 		for (Class<?> interfaze : interfaces) {
-			if (interfaze.equals(TemplateRepository.class)) {
+			if (interfaze.equals(TemplateRepository.class) || interfaze.equals(TemplateRepositoryWithLookup.class)) {
 				return getTemplateRepositoryProxyFactory().generateProxy(clazz);
 			} else if (interfaze.equals(PropertyRepository.class)) {
 				return getPropertyRepositoryProxyFactory().generateProxy(clazz);
