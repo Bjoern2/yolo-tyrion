@@ -8,6 +8,7 @@ I do the rest for you!
 
 BuildHive: [![Build Status](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/badge/icon)](https://buildhive.cloudbees.com/job/Bjoern2/job/yolo-tyrion/) 
 Travis: [![Build Status](https://travis-ci.org/Bjoern2/yolo-tyrion.png?branch=master)](https://travis-ci.org/Bjoern2/yolo-tyrion)
+Ohloh: [![Ohloh](https://www.ohloh.net/p/yolo-tyrion/widgets/project_thin_badge.gif)](https://www.ohloh.net/p/yolo-tyrion)
 
 ## License:
 Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
