@@ -44,6 +44,22 @@ public class TemplateRepositoryProxyFactory {
 		return (X)Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[] {clazz}, getHandler());
 	}
 	
+	/**
+	 * Creates a proxy of your property repository.
+	 * @param <X> The interface class type
+	 * @param clazz The interface classname
+	 * @return A proxy of a template repository.
+	 */
+	@SuppressWarnings("unchecked")
+	public <X> X generateProxy(String clazzName) {
+		try {
+			Class<X> clazz = (Class<X>)Class.forName(clazzName);
+			return generateProxy(clazz);
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	protected InvocationHandler getHandler() {
 		if (handler == null) {
 			handler = new TemplateRepositoryInvocationHandler();

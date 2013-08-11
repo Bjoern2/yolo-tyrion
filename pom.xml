@@ -11,6 +11,7 @@
 		<module>yolo-tyrion</module>
 		<module>yolo-tyrion-velocity</module>
 		<module>yolo-tyrion-groovy</module>
+		<module>yolo-tyrion-spring</module>
 	</modules>
 
 	<properties>
