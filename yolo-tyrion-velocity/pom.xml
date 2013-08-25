@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.bjoern2</groupId>
 	<artifactId>yolo-tyrion-velocity</artifactId>
-	<version>0.0.1</version>
+	<version>1.0.0</version>
 	<name>Velocity generator for Yolo Tyrion.</name>
 
 	<properties>
 		<!--maven variable which points to your local repository -->
-		<repo.release.path>file://C:\develop\repo\mvn-repo\releases\</repo.release.path>
-		<repo.snapshot.path>file://C:\develop\repo\mvn-repo\snapshots\</repo.snapshot.path>
+		<repo.release.path>file://D:\bjoern\repos\mvn-repo\releases\</repo.release.path>
+		<repo.snapshot.path>file://D:\bjoern\repos\mvn-repo\snapshots\</repo.snapshot.path>
 	</properties>
 
 	<distributionManagement>
@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>com.github.bjoern2</groupId>
 			<artifactId>yolo-tyrion</artifactId>
-			<version>0.0.1</version>
+			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -66,6 +66,45 @@
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!-- explicitly define maven-deploy-plugin after other to force exec 
+					order -->
+				<artifactId>maven-deploy-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

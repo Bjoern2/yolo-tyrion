@@ -16,16 +16,23 @@
 
 	<properties>
 		<!--maven variable which points to your local repository -->
-		<internal.repo.path>file://C:\develop\repo\mvn-repo\</internal.repo.path>
+		<repo.release.path>file://D:\bjoern\repos\mvn-repo\releases\</repo.release.path>
+		<repo.snapshot.path>file://D:\bjoern\repos\mvn-repo\snapshots\</repo.snapshot.path>
 	</properties>
 
 	<distributionManagement>
 		<repository>
 			<id>internal.repo</id>
-			<name>Internal Repository</name>
-			<url>${internal.repo.path}</url>
+			<name>Release Repository</name>
+			<url>${repo.release.path}</url>
 		</repository>
+		<snapshotRepository>
+			<id>internal.repo.snapshot</id>
+			<name>Snapshot Repository</name>
+			<url>${repo.snapshot.path}</url>
+		</snapshotRepository>
 	</distributionManagement>
+
 
 </project>
 

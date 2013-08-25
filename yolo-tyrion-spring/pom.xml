@@ -3,13 +3,32 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.bjoern2</groupId>
 	<artifactId>yolo-tyrion-spring</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
+
+	<properties>
+		<!--maven variable which points to your local repository -->
+		<repo.release.path>file://D:\bjoern\repos\mvn-repo\releases\</repo.release.path>
+		<repo.snapshot.path>file://D:\bjoern\repos\mvn-repo\snapshots\</repo.snapshot.path>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Release Repository</name>
+			<url>${repo.release.path}</url>
+		</repository>
+		<snapshotRepository>
+			<id>internal.repo.snapshot</id>
+			<name>Snapshot Repository</name>
+			<url>${repo.snapshot.path}</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.github.bjoern2</groupId>
 			<artifactId>yolo-tyrion</artifactId>
-			<version>0.0.1</version>
+			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -48,6 +67,45 @@
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!-- explicitly define maven-deploy-plugin after other to force exec 
+					order -->
+				<artifactId>maven-deploy-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
