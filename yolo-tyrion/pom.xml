@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.bjoern2</groupId>
 	<artifactId>yolo-tyrion</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>Yolo-Tyrion</name>
 	<description>Template/resource framework. Declare template files in interfaces. I do the rest.</description>
 	<url>https://github.com/Bjoern2/yolo-tyrion</url>

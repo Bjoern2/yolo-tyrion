@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.bjoern2</groupId>
 	<artifactId>yolo-tyrion-velocity</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>Velocity generator for Yolo Tyrion.</name>
 
 	<licenses>
@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>com.github.bjoern2</groupId>
 			<artifactId>yolo-tyrion</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 
