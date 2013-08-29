@@ -155,7 +155,7 @@ WHERE
 Current version: 1.0.0
 
 ### Maven
-Yolo-Tyrion is available vat maven central.
+Yolo-Tyrion is available via Maven Central.
 
 
 Add this dependencies in your pom.xml:
