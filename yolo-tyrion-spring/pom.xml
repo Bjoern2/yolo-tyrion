@@ -13,14 +13,14 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git@github.com:bjoern2/yolo-tyrion.git</connection>
-		<developerConnection>scm:git:git@github.com:bjoern2/yolo-tyrion.git</developerConnection>
-		<url>git@github.com:bjoern2/yolo-tyrion.git</url>
+		<connection>scm:git:git@github.com:Bjoern2/yolo-tyrion.git</connection>
+		<developerConnection>scm:git:git@github.com:Bjoern2/yolo-tyrion.git</developerConnection>
+		<url>git@github.com:Bjoern2/yolo-tyrion.git</url>
 	</scm>
 
 	<developers>
 		<developer>
-			<id>bjoern2</id>
+			<id>Bjoern2</id>
 			<name>Björn Schmitz</name>
 		</developer>
 	</developers>
