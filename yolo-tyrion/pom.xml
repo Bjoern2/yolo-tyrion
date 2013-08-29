@@ -1,37 +1,49 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.bjoern2</groupId>
 	<artifactId>yolo-tyrion</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>Yolo-Tyrion</name>
 	<description>Template/resource framework. Declare template files in interfaces. I do the rest.</description>
 	<url>https://github.com/Bjoern2/yolo-tyrion</url>
 
-	<properties>
-		<!--maven variable which points to your local repository -->
-		<repo.release.path>file://D:\bjoern\repos\mvn-repo\releases\</repo.release.path>
-		<repo.snapshot.path>file://D:\bjoern\repos\mvn-repo\snapshots\</repo.snapshot.path>
-	</properties>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
-	<distributionManagement>
-		<repository>
-			<id>internal.repo</id>
-			<name>Release Repository</name>
-			<url>${repo.release.path}</url>
-		</repository>
-		<snapshotRepository>
-			<id>internal.repo.snapshot</id>
-			<name>Snapshot Repository</name>
-			<url>${repo.snapshot.path}</url>
-		</snapshotRepository>
-	</distributionManagement>
+	<scm>
+		<connection>scm:git:git@github.com:bjoern2/yolo-tyrion.git</connection>
+		<developerConnection>scm:git:git@github.com:bjoern2/yolo-tyrion.git</developerConnection>
+		<url>git@github.com:bjoern2/yolo-tyrion.git</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>bjoern2</id>
+			<name>Björn Schmitz</name>
+		</developer>
+	</developers>
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -55,44 +67,6 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<!-- explicitly define maven-deploy-plugin after other to force exec 
-					order -->
-				<artifactId>maven-deploy-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>deploy</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
