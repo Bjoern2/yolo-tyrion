@@ -14,25 +14,6 @@
 		<module>yolo-tyrion-spring</module>
 	</modules>
 
-	<properties>
-		<!--maven variable which points to your local repository -->
-		<repo.release.path>file://D:\bjoern\repos\mvn-repo\releases\</repo.release.path>
-		<repo.snapshot.path>file://D:\bjoern\repos\mvn-repo\snapshots\</repo.snapshot.path>
-	</properties>
-
-	<distributionManagement>
-		<repository>
-			<id>internal.repo</id>
-			<name>Release Repository</name>
-			<url>${repo.release.path}</url>
-		</repository>
-		<snapshotRepository>
-			<id>internal.repo.snapshot</id>
-			<name>Snapshot Repository</name>
-			<url>${repo.snapshot.path}</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 
 </project>
 
