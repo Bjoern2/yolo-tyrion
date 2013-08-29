@@ -152,20 +152,13 @@ WHERE
 
 
 ## Download
-Current version: 0.0.1-SNAPSHOT
+Current version: 1.0.0
 
 ### Maven
-Add the repository to your pom.xml:
-```xml
-<repositories>
-	<repository>
-		<id>com.github.bjoern2</id>
-		<url>https://raw.github.com/Bjoern2/mvn-repo/master/snapshots/</url>
-	</repository>
-</repositories>
-```
+Yolo-Tyrion is available vat maven central.
 
-Then add the main library:
+
+Add this dependencies in your pom.xml:
 ```xml
 <dependency>
 	<groupId>com.github.bjoern2</groupId>
